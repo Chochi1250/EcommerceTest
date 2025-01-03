@@ -1,0 +1,73 @@
+<html xmlns:th="http://www.thymeleaf.org" lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout}">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Detalles del Servicio</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Bootstrap icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet" />
+</head>
+<body class="d-flex flex-column h-100">
+    <main class="flex-shrink-0">
+        <section layout:fragment="body" class="py-5">
+            <div class="container">
+                <div class="row">
+                    <!-- Blog entries-->
+                    <!-- Main content area-->
+                    <div class="col-lg-8">
+    <!-- Service details-->
+    <div class="card mb-4">
+        <a href="#!"><img class="card-img-top" th:src="${servicio.photoUrl}" alt="Imagen del servicio" style="width: 600x; height: 400x;" /></a>
+        <div class="card-body">
+            <div class="small text-muted" th:text="${servicio.fechaCreacion}"></div>
+            <h2 class="card-title" th:text="${servicio.titulo}"></h2>
+            <p class="card-text" th:text="${servicio.descripcion}"></p>
+            <h5 th:text="'Precio: $' + ${servicio.precio}"></h5>
+            <h5 th:text="'Demora (Aproximada): ' + ${servicio.duracionDias} + ' días'"></h5>
+            <form th:action="@{/cart/{servicioTitulo}(servicioTitulo=${servicio.titulo})}" method="get">
+                <button type="submit" class="btn btn-info">Agregar al carrito</button>
+            </form>
+        </div>
+    </div>
+                        
+                    </div>
+                    <!-- Side widgets-->
+                    <div class="col-lg-4">
+                        <!-- Side widget-->
+                        <div class="card mb-4">
+                            <div class="card-header">IMPORTANTE</div>
+                            <div class="card-body">Ante cualquier duda que tengas con el servicio, no dudes en comunicarte con el vendedor!</div>
+                        </div>
+                        <!-- Side widget-->
+                        <div class="card mb-4">
+                            <div class="card-header">Reseñas</div>
+                            <div class="card-body">
+                                <div th:each="review : ${reviews}">
+                                    <div class="review">
+                                        <div class="small text-muted" th:text="${review.fechaCalificacion}"></div>
+                                        <p th:text="${review.comentario}"></p>
+                                        <div>
+                                            <span th:each="star : ${#numbers.sequence(1, review.calificacion)}">
+                                                <i class="bi bi-star-fill"></i>
+                                            </span>
+                                            <span th:if="${review.calificacion < 5}" th:each="star : ${#numbers.sequence(1, 5 - review.calificacion)}">
+                                                <i class="bi bi-star"></i>
+                                            </span>
+                                        </div>                                        
+                                        <hr>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>                 
+    </main>          
+</body>
+</html>

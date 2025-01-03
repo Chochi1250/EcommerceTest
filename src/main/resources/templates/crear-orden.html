@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Crear Orden</title>
+    <!-- Puedes agregar aquí enlaces a estilos CSS o Bootstrap si lo necesitas -->
+</head>
+<body>
+    <h1>Crear Orden</h1>
+
+    <form th:action="@{/ordenes/new}" th:object="${orden}" method="post">
+        <div>
+            <label for="idCliente">ID Cliente</label>
+            <input type="text" id="idCliente" th:field="*{idCliente}" readonly />
+        </div>
+        
+        <div>
+            <label for="idServicio">ID Servicio</label>
+            <input type="text" id="idServicio" th:field="*{idServicio}" readonly />
+        </div>
+
+        <div>
+            <label for="precioServicio">Precio del Servicio</label>
+            <input type="number" id="precioServicio" th:field="*{precioServicio}" readonly />
+        </div>
+
+        <div>
+            <label for="fechaOrden">Fecha de la Orden</label>
+            <input type="date" id="fechaOrden" th:field="*{fechaOrden}" readonly />
+        </div>
+
+        <div>
+            <label for="estadoOrden">Estado de la Orden</label>
+            <input type="text" id="estadoOrden" th:field="*{estadoOrden}" readonly />
+        </div>
+
+        <div>
+            <label for="fechaEntrega">Fecha de Entrega</label>
+            <input type="date" id="fechaEntrega" th:field="*{fechaEntrega}" />
+        </div>
+
+        <button type="submit">Confirmar Orden</button>
+    </form>
+
+    <a th:href="@{/servicios}">Volver a Servicios</a>
+</body>
+</html>

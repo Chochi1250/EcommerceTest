@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ChangaYa - Success</title>
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Latest compiled and minified CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Congratulations area start -->
+    <div class="congratulation-area text-center mt-5">
+        <div class="container">
+            <div class="congratulation-wrapper">
+                <div class="congratulation-contents center-text">
+                    <div class="btn-wrapper mt-4">
+                        <div style="display: inline-block; background-color: rgb(26, 230, 43); border-radius: 50%; padding: 20px;">
+                            <i class="fas fa-check" style="font-size: 50px; color: white;"></i>
+                        </div>
+                    </div>
+                    <h4 class="congratulation-contents-title"> Felicitaciones! </h4>
+                    <p class="congratulation-contents-para"> Su compra fue realizada con exito. </p>
+                        <a th:href="@{/home}" class="btn btn-primary">Volver a la pagina principal</a>
+                        <a th:href="@{/perfil}" class="btn btn-primary"> Ver sus ordenes </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Congratulations area end -->
+
+<!-- Latest compiled JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>

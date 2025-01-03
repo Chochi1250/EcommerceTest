@@ -1,0 +1,173 @@
+<html xmlns:th="http://www.thymeleaf.org" lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout}">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Crear Servicio</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+    </head>
+    
+    <body class="d-flex flex-column h-100">
+        <main class="flex-shrink-0">
+            <!-- Page Content-->
+            <section layout:fragment="body" class="py-5">
+                <div class="container">
+                    <form role="form" method="post" th:action="@{/servicios/new}" th:object="${servicio}">
+                    <div class="form-group row mb-3">
+                      <label for="inputEmail3" class="col-sm-2 col-form-label">Nombre</label>
+                      <div class="col-sm-10">
+                      <input 
+                        type="text" 
+                        class="form-control" 
+                        id="titulo" 
+                        name="titulo"
+                        th:field="*{titulo}"
+                        placeholder="nombre de tu servicio">
+                      <p th:if="${#fields.hasErrors('titulo')}" class="text-danger" th:errors="*{titulo}">Error</p>
+                      </div>
+                    </div>
+                    <div class="form-group row mb-3">
+                      <label for="inputEmail3" class="col-sm-2 col-form-label">Descripcion</label>
+                      <div class="col-sm-10">
+                      <input 
+                        type="text" 
+                        class="form-control" 
+                        id="descripcion" 
+                        name="descripcion"
+                        th:field="*{descripcion}"
+                        placeholder="descripcion de tu servicio">
+                      <p th:if="${#fields.hasErrors('descripcion')}" class="text-danger" th:errors="*{descripcion}">Error</p>
+                      </div>
+                    </div>
+                    <div class="form-group row mb-3">
+                      <label for="inputPassword3" class="col-sm-2 col-form-label">Precio</label>
+                      <div class="col-sm-10">
+                      <input 
+                        type="number" 
+                        class="form-control" 
+                        id="precio" 
+                        name="precio"
+                        th:field="*{precio}"
+                        placeholder="precio">
+                      <p th:if="${#fields.hasErrors('precio')}" class="text-danger" th:errors="*{precio}">Error</p>
+                      </div>
+                    </div>
+                    <div class="form-group row mb-3">
+                      <label for="inputEmail3" class="col-sm-2 col-form-label">Tiempo Estimado</label>
+                      <div class="col-sm-10">
+                      <input 
+                        type="text" 
+                        class="form-control" 
+                        id="duracionDias" 
+                        name="duracionDias"
+                        th:field="*{duracionDias}"
+                        placeholder="Cuanto demora el servicio">
+                      <p th:if="${#fields.hasErrors('duracionDias')}" class="text-danger" th:errors="*{duracionDias}">Error</p>
+                      </div>
+                    </div>
+                    <div class="form-group row mb-3">
+                      <label for="inputPassword3" class="col-sm-2 col-form-label">Foto</label>
+                      <div class="col-sm-10">
+                      <input 
+                        type="text" 
+                        class="form-control" 
+                        id="photoUrl" 
+                        name="photoUrl"
+                        th:field="*{photoUrl}" 
+                        placeholder="url">
+                      <p th:if="${#fields.hasErrors('photoUrl')}" class="text-danger" th:errors="*{photoUrl}">Error</p>
+                    </div>
+                    
+                </div>
+                    <fieldset class="form-group mb-3">
+                      <div class="row">
+                      <legend class="col-form-label col-sm-2 pt-0">Tipos</legend>
+                      
+                      <div class="col-sm-10">
+                        <div class="form-check">
+                        <input class="form-check-input" 
+                          type="checkbox" 
+                          name="categorias" 
+                          id="categoria1" 
+                          th:field="*{categorias}" 
+                          value="Edicion">
+                        <label class="form-check-label" for="categoria1">
+                          Edicion
+                        </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" 
+                            type="checkbox" 
+                            name="categorias" 
+                            id="categoria2" 
+                            th:field="*{categorias}" 
+                            value="Aplicaciones">
+                          <label class="form-check-label" for="categoria2">
+                            Aplicaciones
+                          </label>
+                          </div>
+                        <div class="form-check">
+                          <input class="form-check-input" 
+                            type="checkbox" 
+                            name="categorias" 
+                            id="categoria3" 
+                            th:field="*{categorias}" 
+                            value="Desarrollo UX/UI">
+                          <label class="form-check-label" for="categoria3">
+                            Desarrollo UX/UI
+                          </label>
+                          </div>
+                        <div class="form-check">
+                          <input class="form-check-input" 
+                            type="checkbox" 
+                            name="categorias" 
+                            id="categoria4" 
+                            th:field="*{categorias}" 
+                            value="Desarrollo Web">
+                          <label class="form-check-label" for="categoria4">
+                            Desarrollo Web
+                          </label>
+                          </div>
+                        <div class="form-check">
+                          <input class="form-check-input" 
+                            type="checkbox" 
+                            name="categorias" 
+                            id="categoria5" 
+                            th:field="*{categorias}" 
+                            value="Guionista">
+                          <label class="form-check-label" for="categoria5">
+                            Guionista
+                          </label>
+                          </div>
+                        <div class="form-check">
+                        <input class="form-check-input" 
+                          type="checkbox" 
+                          name="categorias" 
+                          id="categoria6"
+                          th:field="*{categorias}" 
+                          value="Programacion">
+                        <label class="form-check-label" for="categoria6">
+                          Programacion
+                        </label>
+                        <p th:if="${#fields.hasErrors('categorias')}" class="text-danger" th:errors="*{categorias}">Error</p>
+                        </div>
+                      </div>
+                      </div>
+                    </fieldset>
+                    <div class="form-group row">
+                      <div class="col-sm-10">
+                      <button type="submit" class="btn btn-primary">Crear</button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+            </section>             
+        </main>          
+    </body>
+</html>

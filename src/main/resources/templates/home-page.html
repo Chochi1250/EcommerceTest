@@ -1,0 +1,102 @@
+<html xmlns:th="http://www.thymeleaf.org" lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout}">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Homepage</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+    </head>
+    <body class="d-flex flex-column">
+        <main class="flex-shrink-0">
+            <!-- Page Content-->
+            <section layout:fragment="body" class="py-5">
+                
+            <header class="masthead">
+                <div class="container position-relative">
+                    <div class="row justify-content-center">
+                        <div class="col-xl-6">
+                            <div class="text-center text-white">
+                                <h1 class="mb-5" style="color: black;">Encuentra el servicio freelance que siempre deseaste</h1>
+                                <form class="form-subscribe" id="contactForm" th:action="@{/servicios/buscar}">
+                                    <div class="row">
+                                        <div class="col">
+                                            <input name="query" class="form-control form-control-lg"  type="search" placeholder="Buscar Servicio" aria-label="Buscar"/>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <section class="py-5"></section>
+                <div class="container px-5">
+                    <h2 class="fw-bolder fs-5 mb-4">Servicios destacados</h2>
+                    <div class="row gx-5">
+                        <div class="col-lg-4 mb-5" th:each="servicio, iterStat : ${servicios}" th:if="${iterStat.index < 3}">
+                            <div class="card h-100 shadow border-0">
+                                <img class="img-fluid rounded-3 mb-3" th:src="${servicio.photoUrl}" alt="..." style="width: 100%; height: 250px; object-fit: contain;" />
+                                <div class="card-body p-4">
+                                    <div class="badge bg-primary bg-gradient rounded-pill mb-2">Servicio</div>
+                                    <a class="text-decoration-none link-dark stretched-link" th:text="${servicio.titulo}">
+                                        <div class="h4 card-title mb-4"></div>
+                                    </a>
+                                    <p class="card-text mb-0" th:text="${servicio.descripcion}"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-end mb-5 mb-xl-0">
+                        <a class="text-decoration-none" th:href="@{/servicios}">
+                            Ver mas servicios
+                            <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="container px-5">
+                    <div class="row gx-5">
+                        <div class="col-xl-8">
+                            <h2 class="display-4 fw-bolder mb-4">Porque elegir ChangaYa?</h2>
+                            <div class="mb-4">
+                                <h3 class="text-dark">Trabajo de calidad - eficiente y confiable</h3>
+                                <div class="d-flex align-items-center">
+
+                                    <div class="small text-muted" style="font-size: 1.25rem;">Recibe entregas puntuales y de alta calidad, ya sea un trabajo a corto plazo o un proyecto complejo.</div>
+                                </div>
+                            </div>
+                            <div class="mb-4">
+                                <h3 class="text-dark">Soporte 24/7</h3>
+                                <div class="d-flex align-items-center">
+
+                                    <div class="small text-muted" style="font-size: 1.25rem;">¿Tienes alguna pregunta? Nuestro equipo de soporte está disponible a cualquier hora del día, en todo momento y en todo lugar.</div>
+                                </div>
+                            </div>
+                            <div class="mb-4">
+                                <h3 class="text-dark">Locales o globales</h3>
+                                <div class="d-flex align-items-center">
+
+                                    <div class="small text-muted" style="font-size: 1.25rem;">Trabaja con expertos de habla español o con talento profesional internacional, de acuerdo a tus preferencias y requisitos.</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4">
+                            <div class="card border-0 h-100">
+                                <div class="card-body p-4">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </section>
+            
+            
+        </main>
+    </body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet"/>
+    <link th:href="@{/css/styles.css}" rel="stylesheet"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title >ChangaYa - Carrito</title>
+</head>
+<body>
+    <div class="container px-3 my-5 clearfix">
+    <!-- Shopping cart table -->
+    <div class="card">
+        <div class="card-header">
+            <h2>Carrito</h2>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-bordered m-0">
+                <thead>
+                  <tr>
+                    <!-- Set columns width -->
+                    <th class="text-center py-3 px-4" style="min-width: 400px;">Nombre del producto &amp; Detalles</th>
+                    <th class="text-right py-3 px-4" style="width: 100px;">Precio</th>
+                    
+                  </tr>
+                </thead>
+                <tbody>
+        
+                  <tr>
+                    <td class="p-4">
+                      <div class="media align-items-center">
+                        <img th:src="${servicio.photoUrl}" class="d-block ui-w-40 ui-bordered mr-4" alt="" style="max-width: 250px; max-height: 250px;">
+                        <div class="media-body">
+                          <a th:text="${servicio.titulo}" class="d-block text-dark">Product 1</a>
+                          <small>
+                            <span class="text-muted">Proveedor:</span> <span th:text="${servicio.idFreeLancer}"></span><br>
+                            <span class="text-muted">Descripcion: </span> <span th:text="${servicio.descripcion}"></span><br>
+                            <span class="text-muted">Categorias: </span> <span th:text="${servicio.categorias}"></span><br>
+                            <span class="ui-product-color ui-product-color-sm align-text-bottom" style="background:#e81e2c;"></span>
+                          </small>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="text-right font-weight-semibold align-middle p-4" th:text="${servicio.precio}"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <!-- / Shopping cart table -->
+        
+            <div class="d-flex flex-wrap justify-content-between align-items-center pb-4">
+              <div class="d-flex">
+                <div class="text-right mt-4 mr-5">
+                </div>
+                <div class="text-right mt-4">
+                  <label class="text-muted font-weight-normal m-0">Tiempo estimado de entrega</label>
+                    <div class="text-large " th:text="${servicio.duracionDias} + ' días'"><strong></strong></div>
+                </div>
+                
+              </div>
+            </div>
+        
+            <div class="float-right">
+              <form th:action="@{/ordenes/new}" method="post">
+                <input type="hidden" name="servicioId" th:value="${servicio.id}" />
+                <button type="submit" class="btn btn-lg btn-primary mt-2">Comprar</button>
+                <a th:href="@{/home}" class="btn btn-lg btn-default md-btn-flat mt-2 mr-3">Cancelar Compra</a>
+              </form>
+              
+            </div>
+        
+          </div>
+      </div>
+  </div>
+</body>
+</html>
+
+
